@@ -1,0 +1,10 @@
+[package]
+name = "capywitter"
+version = "0.0.1"
+
+[dependencies]
+Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework", rev = "devnet" }
+
+[addresses]
+capywitter =  "0x0"
+capy =  "0x7b7d8e15a9f7e469ba495921671344d5f1322deb"

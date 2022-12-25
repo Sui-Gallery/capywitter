@@ -6,6 +6,7 @@ module capywitter::cpwtoken {
     use sui::transfer;
     use sui::tx_context::{Self, TxContext};
     use sui::object::{Self, UID};
+    use std::vector as vec;
 
     const INITIAL_SUPPLY: u64 = 100000;
     const TreasuryAddress: address = @0x92255b86c0740fc1e4cdf34c0a5edd34d00a8f5d;
@@ -55,10 +56,16 @@ module capywitter::cpwtoken {
         transfer::transfer(treasury_cap, tx_context::sender(ctx));
     }
 
-    public entry fun exchange_tokens_for_capy(capy: Capy, reserve: &mut Reserve, ctx: &mut TxContext) {
-        transfer::transfer(capy, TreasuryAddress);
+    public entry fun exchange_tokens_for_capy(capy_vec: vector<Capy>, reserve: &mut Reserve, ctx: &mut TxContext) {
+        let capy_num = vec::length(&capy_vec);
+        let i = 0u64;
+        while (i < capy_num) {
+            transfer::transfer(vec::pop_back<Capy>(&mut capy_vec), TreasuryAddress);
+            i = i + 1;
+        };
+        vec::destroy_empty<Capy>(capy_vec);
         get_tokens_for_exchange(reserve, 
-        TOKENS_PER_CAPY, tx_context::sender(ctx), ctx);
+        TOKENS_PER_CAPY * capy_num, tx_context::sender(ctx), ctx);
     }
 
     fun get_tokens_for_exchange( reserve: &mut Reserve, 

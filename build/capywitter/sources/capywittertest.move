@@ -4,6 +4,7 @@ module capywitter::capywittertest {
     use sui::coin::{Self, Coin};
     use sui::test_scenario::{Self};
     use std::ascii::{Self};
+    use std::vector as vec;
 
     const CAPY_OWNER: address = @0x1;
     const TOKENS_PER_CAPY: u64 = 10; 
@@ -23,7 +24,9 @@ module capywitter::capywittertest {
             let capy = test_scenario::take_from_address<cpwtoken::Capy>(scenario, CAPY_OWNER);
             let reserve = test_scenario::take_shared<cpwtoken::Reserve>(scenario);
             let ctx = test_scenario::ctx(scenario);
-            cpwtoken::exchange_tokens_for_capy(capy, &mut reserve, ctx);
+            let capy_vec = vec::empty<cpwtoken::Capy>();
+            vec::push_back<cpwtoken::Capy>(&mut capy_vec, capy);
+            cpwtoken::exchange_tokens_for_capy(capy_vec, &mut reserve, ctx);
             test_scenario::return_shared<cpwtoken::Reserve>(reserve);
         };
         test_scenario::next_tx(scenario, CAPY_OWNER);

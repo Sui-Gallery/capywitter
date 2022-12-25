@@ -1,11 +1,9 @@
 [package]
-name = "capywitter"
-version = "0.0.1"
+name = "sui-capybaras"
+version = "0.1.0"
 
 [dependencies]
 Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework", rev = "devnet" }
-sui-capybaras = { local = "capy" }
 
 [addresses]
-capywitter =  "0x0"
 capy = "0x12d8e0e1e74a392d7ff7f5e074182e5c9717a02f"

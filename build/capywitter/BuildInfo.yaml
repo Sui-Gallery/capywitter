@@ -2,13 +2,14 @@
 compiled_package_info:
   package_name: capywitter
   address_alias_instantiation:
+    capy: 30136e80e16ac92ff33a0ac2d67c64dc129eb0bc
     capywitter: "0000000000000000000000000000000000000000"
     std: "0000000000000000000000000000000000000001"
     sui: "0000000000000000000000000000000000000002"
-  source_digest: 8CF635C38043D257F1BDB492CEC913CB97F489F8F14C104B6E43B8765C12FEF3
+  source_digest: A098B531650DF4E043584719420BE1C4D0A67D71B785ECD31AA8AE9F8BF86515
   build_flags:
-    dev_mode: true
-    test_mode: true
+    dev_mode: false
+    test_mode: false
     generate_docs: false
     generate_abis: false
     install_dir: ~
@@ -20,3 +21,4 @@ compiled_package_info:
 dependencies:
   - MoveStdlib
   - Sui
+  - sui-capybaras

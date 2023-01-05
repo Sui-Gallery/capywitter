@@ -21,12 +21,12 @@ module capywitter::capywittertest {
         };
         test_scenario::next_tx(scenario, CAPY_OWNER);
         {
-            let capy = test_scenario::take_from_address<cpwtoken::Capy>(scenario, CAPY_OWNER);
+            let capy = test_scenario::take_from_address<cpwtoken::TestCapy>(scenario, CAPY_OWNER);
             let reserve = test_scenario::take_shared<cpwtoken::Reserve>(scenario);
             let ctx = test_scenario::ctx(scenario);
-            let capy_vec = vec::empty<cpwtoken::Capy>();
-            vec::push_back<cpwtoken::Capy>(&mut capy_vec, capy);
-            cpwtoken::exchange_tokens_for_capy(capy_vec, &mut reserve, ctx);
+            let capy_vec = vec::empty<cpwtoken::TestCapy>();
+            vec::push_back<cpwtoken::TestCapy>(&mut capy_vec, capy);
+            cpwtoken::exchange_tokens_for_capy_test(capy_vec, &mut reserve, ctx);
             test_scenario::return_shared<cpwtoken::Reserve>(reserve);
         };
         test_scenario::next_tx(scenario, CAPY_OWNER);

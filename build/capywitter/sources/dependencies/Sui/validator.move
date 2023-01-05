@@ -37,12 +37,18 @@ module sui::validator {
         /// The public key bytes corresponding to the private key that the validator
         /// uses to establish TLS connections
         network_pubkey_bytes: vector<u8>,
+        /// The public key bytes correstponding to the Narwhal Worker
+        worker_pubkey_bytes: vector<u8>,
         /// This is a proof that the validator has ownership of the private key
         proof_of_possession: vector<u8>,
         /// A unique human-readable name of this validator.
         name: vector<u8>,
         /// The network address of the validator (could also contain extra info such as port, DNS and etc.).
         net_address: vector<u8>,
+        /// The address of the narwhal primary
+        consensus_address: vector<u8>,
+        /// The address of the narwhal worker
+        worker_address: vector<u8>,
         /// Total amount of validator stake that would be active in the next epoch.
         next_epoch_stake: u64,
         /// Total amount of delegated stake that would be active in the next epoch.
@@ -94,9 +100,12 @@ module sui::validator {
         sui_address: address,
         pubkey_bytes: vector<u8>,
         network_pubkey_bytes: vector<u8>,
+        worker_pubkey_bytes: vector<u8>,
         proof_of_possession: vector<u8>,
         name: vector<u8>,
         net_address: vector<u8>,
+        consensus_address: vector<u8>,
+        worker_address: vector<u8>,
         stake: Balance<SUI>,
         coin_locked_until_epoch: Option<EpochTimeLock>,
         gas_price: u64,
@@ -122,9 +131,12 @@ module sui::validator {
                 sui_address,
                 pubkey_bytes,
                 network_pubkey_bytes,
+                worker_pubkey_bytes,
                 proof_of_possession,
                 name,
                 net_address,
+                consensus_address,
+                worker_address,
                 next_epoch_stake: stake_amount,
                 next_epoch_delegation: 0,
                 next_epoch_gas_price: gas_price,
@@ -300,9 +312,12 @@ module sui::validator {
         sui_address: address,
         pubkey_bytes: vector<u8>,
         network_pubkey_bytes: vector<u8>,
+        worker_pubkey_bytes: vector<u8>,
         proof_of_possession: vector<u8>,
         name: vector<u8>,
         net_address: vector<u8>,
+        consensus_address: vector<u8>,
+        worker_address: vector<u8>,
         stake: Balance<SUI>,
         coin_locked_until_epoch: Option<EpochTimeLock>,
         gas_price: u64,
@@ -323,9 +338,12 @@ module sui::validator {
                 sui_address,
                 pubkey_bytes,
                 network_pubkey_bytes,
+                worker_pubkey_bytes,
                 proof_of_possession,
                 name,
                 net_address,
+                consensus_address,
+                worker_address,
                 next_epoch_stake: stake_amount,
                 next_epoch_delegation: 0,
                 next_epoch_gas_price: gas_price,

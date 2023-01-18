@@ -8,4 +8,4 @@ sui-capybaras = { local = "capy" }
 
 [addresses]
 capywitter =  "0x0"
-capy = "0x30136e80e16ac92ff33a0ac2d67c64dc129eb0bc"
+capy = "0x736fe293da17a584d9e985f83737219455dba07d"

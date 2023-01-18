@@ -54,7 +54,7 @@ module capywitter::twitter {
         assert!(index >= MIN_INDEX && index <= MAX_INDEX, EInvalidIndex);
         assert!(ascii::length(&text) <= MAX_TEXT_SIZE, ETooLongText);
         let paid_val = coin::value(&paid);
-        let min_val = 0;
+        let min_val = get_min_fee_by_slot_index(tw, index);
         assert!(paid_val > min_val, EInsufficientPayment);
         transfer::transfer(paid, TreasuryAddress);
         let slot_ref_mut = df::borrow_mut<u8, Slot>(&mut tw.id, index);

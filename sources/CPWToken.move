@@ -46,6 +46,12 @@ module capywitter::cpwtoken {
 
         // Mint the inital supply
         let minted_coins = coin::mint<CPWTOKEN>(&mut treasury_cap, INITIAL_SUPPLY, ctx);
+
+        // Seperate %1 of tokens to deployer
+        let coin_for_deployer = coin::split<CPWTOKEN>(&mut minted_coins, INITIAL_SUPPLY / 100 ,ctx);
+        // Send deployer his tokens
+        transfer::transfer(coin_for_deployer, tx_context::sender(ctx));
+
         let minted_balance = coin::into_balance<CPWTOKEN>(minted_coins);
         transfer::share_object(
             Reserve {
@@ -91,10 +97,9 @@ module capywitter::cpwtoken {
         transfer::transfer(tokens_for_capy, exchanged_address);
     }
 
-    public entry fun withdraw_tokens(_: &mut TreasuryCap<CPWTOKEN>, reserve: &mut Reserve, 
+    public entry fun withdraw_tokens(_: &mut TreasuryCap<CPWTOKEN>, reserve: &mut Reserve, amount: u64, 
         ctx: &mut TxContext) {
-        let reserve_balance_val = reserve_balance(reserve);
-        let cpw_balance = get_reserve_balance_owned(reserve, reserve_balance_val);
+        let cpw_balance = get_reserve_balance_owned(reserve, amount);
         let cpw_coins = coin::from_balance(cpw_balance, ctx);
         transfer::transfer(cpw_coins, tx_context::sender(ctx));
     }

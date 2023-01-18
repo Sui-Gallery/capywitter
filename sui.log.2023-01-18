@@ -1,0 +1,16 @@
+2023-01-18T09:59:19.526918Z  INFO sui::client_commands: 0xce01003b0a1d0aa736d770e99935c21e6627e66a
+2023-01-18T10:00:31.561606Z  INFO sui::client_commands: 0xce01003b0a1d0aa736d770e99935c21e6627e66a
+2023-01-18T10:01:26.577940Z  INFO sui::client_commands: devnet => https://fullnode.devnet.sui.io:443 (active)
+2023-01-18T10:02:14.864475Z  INFO sui::client_commands:                  Object ID                  |  Gas Value 
+2023-01-18T10:02:14.864665Z  INFO sui::client_commands: ----------------------------------------------------------------------
+2023-01-18T10:02:30.469464Z  INFO sui::client_commands:                  Object ID                  |  Gas Value 
+2023-01-18T10:02:30.469611Z  INFO sui::client_commands: ----------------------------------------------------------------------
+2023-01-18T10:32:04.898422Z  INFO sui::client_commands:                  Object ID                  |  Gas Value 
+2023-01-18T10:32:04.899521Z  INFO sui::client_commands: ----------------------------------------------------------------------
+2023-01-18T10:32:04.899530Z  INFO sui::client_commands:  0x38477a382f9dfb0867dad3b4f20ef7b4656ef423 |  10000000  
+2023-01-18T10:32:04.899536Z  INFO sui::client_commands:  0x4cb499bd931b954cf4b524fb4f7f806d4196f84b |  10000000  
+2023-01-18T10:32:04.899544Z  INFO sui::client_commands:  0x5a7b2c60add57104f6e0ed1d97e3a2322b17f52b |  10000000  
+2023-01-18T10:32:04.899550Z  INFO sui::client_commands:  0x7111687ba4ec0a53d77eb2d772d6669e997bb57a |  10000000  
+2023-01-18T10:32:04.899555Z  INFO sui::client_commands:  0xf2c956a71d0855028d160709d536ccafa638aae9 |  10000000  
+2023-01-18T10:32:40.882659Z  INFO sui::client_commands: devnet => https://fullnode.devnet.sui.io:443 (active)
+2023-01-18T10:32:40.882954Z  INFO sui::client_commands: localnet => http://0.0.0.0:9000

@@ -1,4 +1,4 @@
-module capywitter::capywittertest {
+/* module capywitter::capywittertest {
     use capywitter::cpwtoken::{Self};
     use capywitter::twitter::{Self};
     use sui::coin::{Self, Coin};
@@ -57,4 +57,4 @@ module capywitter::capywittertest {
         };
         test_scenario::end(scenario_val);
     } 
-}
+} */

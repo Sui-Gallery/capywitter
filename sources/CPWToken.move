@@ -10,7 +10,7 @@ module capywitter::cpwtoken {
     use capy::capy::Capy;
 
     const INITIAL_SUPPLY: u64 = 100000;
-    const TreasuryAddress: address = @0x92255b86c0740fc1e4cdf34c0a5edd34d00a8f5d;
+    const TreasuryAddress: address = @0xa9d371945967713688913649c0756db7dfbd5b03;
     const TOKENS_PER_CAPY: u64 = 10;
 
     // Errors

@@ -11,7 +11,7 @@ module capywitter::twitter {
     const MAX_TEXT_SIZE: u64 = 150;
     const MIN_INDEX: u8 = 1;
     const MAX_INDEX: u8 = 10;
-    const TreasuryAddress: address = @0x92255b86c0740fc1e4cdf34c0a5edd34d00a8f5d;
+    const TreasuryAddress: address = @0xa9d371945967713688913649c0756db7dfbd5b03;
 
     //Errors
 
@@ -58,11 +58,12 @@ module capywitter::twitter {
         assert!(paid_val > min_val, EInsufficientPayment);
         transfer::transfer(paid, TreasuryAddress);
         let slot_ref_mut = df::borrow_mut<u8, Slot>(&mut tw.id, index);
-        edit_slot(slot_ref_mut, text);
+        edit_slot(slot_ref_mut, text, paid_val);
     }
 
-    fun edit_slot(slot: &mut Slot, text: String) {
+    fun edit_slot(slot: &mut Slot, text: String, new_min_fee: u64) {
         slot.text = text;
+        slot.minimum_fee = new_min_fee;
     }
 
     public fun get_text_by_slot_index(tw: &Twitter, index: u8): String {

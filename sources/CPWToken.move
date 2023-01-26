@@ -6,6 +6,8 @@ module capywitter::cpwtoken {
     use sui::transfer;
     use sui::tx_context::{Self, TxContext};
     use sui::object::{Self, UID};
+    use sui::event;
+    use sui::url::{Self, Url};
     use std::vector as vec;
     use capy::capy::Capy;
 
@@ -16,6 +18,14 @@ module capywitter::cpwtoken {
     // Errors
 
     const EInsufficientReserve: u64 = 0;
+
+    // Events
+
+    struct ExchangeEvent has copy, drop {
+        exchanged_capy_no: u64
+    }
+
+    // Objects
 
     struct CPWTOKEN has drop {}
 
@@ -39,15 +49,16 @@ module capywitter::cpwtoken {
     }
 
     fun init(witness: CPWTOKEN, ctx: &mut TxContext) {
+        let icon_url: Url = url::new_unsafe_from_bytes(b"ipfs://QmPwfj85nTnKwcVjr1ucgYKHFJFEvxKBHhxDL8oov1jLuQ");
         // Get the treasury capability and metada for the coin
         let (treasury_cap, metadata) = coin::create_currency<CPWTOKEN>(witness, 0, b"CPWTOKEN", b"Capywitter Token", 
-            b"Token of Cappywitter dapp developed by Sui Gallery", option::none(), ctx);
+            b"Token of Cappywitter dapp developed by Sui Gallery", option::some(icon_url), ctx);
         transfer::freeze_object(metadata);
 
-        // Mint the inital supply
+        // Mint the initial supply
         let minted_coins = coin::mint<CPWTOKEN>(&mut treasury_cap, INITIAL_SUPPLY, ctx);
 
-        // Seperate %1 of tokens to deployer
+        // Separate %1 of tokens to deployer
         let coin_for_deployer = coin::split<CPWTOKEN>(&mut minted_coins, INITIAL_SUPPLY / 100 ,ctx);
         // Send deployer his tokens
         transfer::transfer(coin_for_deployer, tx_context::sender(ctx));
@@ -73,6 +84,11 @@ module capywitter::cpwtoken {
         vec::destroy_empty<Capy>(capy_vec);
         get_tokens_for_exchange(reserve, 
         TOKENS_PER_CAPY * capy_num, tx_context::sender(ctx), ctx);
+        event::emit(
+            ExchangeEvent{
+                exchanged_capy_no: capy_num
+            }
+        );
     }
 
     #[test_only]

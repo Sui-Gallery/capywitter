@@ -2,11 +2,12 @@ module capywitter::twitter {
 
     use std::ascii::{Self, String};
     use sui::object::{Self, UID};
-    use sui::tx_context::{TxContext};
+    use sui::tx_context::{Self,TxContext};
     use capywitter::cpwtoken::{CPWTOKEN};
     use sui::coin::{Self, Coin};
     use sui::dynamic_field as df;
     use sui::transfer;
+    use sui::event;
 
     const MAX_TEXT_SIZE: u64 = 150;
     const MIN_INDEX: u8 = 1;
@@ -18,6 +19,14 @@ module capywitter::twitter {
     const EInvalidIndex: u64 = 0;
     const EInsufficientPayment: u64 = 1;
     const ETooLongText: u64 = 2;
+
+    // Events
+
+    struct PublishEvent has copy, drop {
+        text: String,
+        index: u8,
+        value: u64
+    }
 
     fun init(ctx: &mut TxContext) {
         let uid = object::new(ctx);
@@ -50,7 +59,7 @@ module capywitter::twitter {
     }
 
     public entry fun publish_text_by_index(tw: &mut Twitter, paid: Coin<CPWTOKEN>, text: String, 
-        index: u8) {
+        index: u8, ctx: &mut TxContext) {
         assert!(index >= MIN_INDEX && index <= MAX_INDEX, EInvalidIndex);
         assert!(ascii::length(&text) <= MAX_TEXT_SIZE, ETooLongText);
         let paid_val = coin::value(&paid);
@@ -58,12 +67,20 @@ module capywitter::twitter {
         assert!(paid_val > min_val, EInsufficientPayment);
         transfer::transfer(paid, TreasuryAddress);
         let slot_ref_mut = df::borrow_mut<u8, Slot>(&mut tw.id, index);
-        edit_slot(slot_ref_mut, text, paid_val);
+        edit_slot(slot_ref_mut, text, paid_val, tx_context::sender(ctx));
+        event::emit(
+            PublishEvent {
+                text,
+                index,
+                value: paid_val
+            }
+        )
     }
 
-    fun edit_slot(slot: &mut Slot, text: String, new_min_fee: u64) {
+    fun edit_slot(slot: &mut Slot, text: String, new_min_fee: u64, new_editor: address) {
         slot.text = text;
         slot.minimum_fee = new_min_fee;
+        slot.edited_by = new_editor;
     }
 
     public fun get_text_by_slot_index(tw: &Twitter, index: u8): String {

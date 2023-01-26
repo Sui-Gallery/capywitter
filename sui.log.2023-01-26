@@ -1,0 +1,3 @@
+2023-01-26T19:37:04.387664Z  WARN sui::client_commands: Client/Server api version mismatch, client api version : 0.22.0, server api version : 0.23.0
+2023-01-26T19:37:04.435042Z  INFO sui::client_commands:                  Object ID                  |  Gas Value 
+2023-01-26T19:37:04.435063Z  INFO sui::client_commands: ----------------------------------------------------------------------

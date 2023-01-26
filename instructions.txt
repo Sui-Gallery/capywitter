@@ -1,13 +1,12 @@
 publish: sui client publish nft-projects/capywitter --gas-budget 100000
-Package id: 0x38e9a153cde164e1ff1e6aff5b8b93f836b8ba75
-twitter_id: 0xa02c998775b12f0ce98836dd22f29b2e653ef4ab
-reserve_id: 0x227ea9bf59ad20e5b114243f953d36f5221804a5
+Package id: 0xcdb8273f36693fd4349528ec75f65547e285d3e9
+twitter_id: 0xddc1e4772cf4ea2258fb3c0e760e95dafda8f580
+reserve_id: 0x7c8dc9b5a4c5526f4e6f8eb9250eec0e4847f0cd
 
-capy_id1:0x731f1ccb80432c1d597972099694cf7eace73915
-capy_id2:
+capy_id1:0x40870ed522db462ce1902c85f9f5d44c1c6c6629
+coin 6: 0x5a9c51472d0daef05cc424718cdc7b08fcfb9c8c
+coin 4: 0xf80be700cb8023322b60410b14a717d8c3266068
 
-coin(6): 0x48299fc275e4c254700cef574f7cf5ef633d8bec
-coin(14): 0x6809ee4315d8942eee65e24b107b34df73566e65
 
 sui client call --package 0x38e9a153cde164e1ff1e6aff5b8b93f836b8ba75 --module "cpwtoken" --function "exchange_tokens_for_capy" --args '["0x23e46c9de6f0ddcd28f61ed23602a460b9b5adbb", "0x34548ddbc5761f4d60e33ca7bd5852ea4c712cc5"]' 0x227ea9bf59ad20e5b114243f953d36f5221804a5 --gas-budget 100000
 sui client call --package 0x38e9a153cde164e1ff1e6aff5b8b93f836b8ba75 --module "twitter" --function "publish_text_by_index" --args 0xa02c998775b12f0ce98836dd22f29b2e653ef4ab 0x48299fc275e4c254700cef574f7cf5ef633d8bec "sui gallery is alive" 1 --gas-budget 10000

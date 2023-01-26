@@ -14,7 +14,7 @@ module sui::validator {
     use sui::epoch_time_lock::EpochTimeLock;
     use std::option::Option;
     use sui::bls12381::bls12381_min_sig_verify_with_domain;
-    use sui::staking_pool::{Self, Delegation, StakedSui, StakingPool};
+    use sui::staking_pool::{Self, Delegation, PoolTokenExchangeRate, StakedSui, StakingPool};
 
     friend sui::genesis;
     friend sui::sui_system;
@@ -43,6 +43,9 @@ module sui::validator {
         proof_of_possession: vector<u8>,
         /// A unique human-readable name of this validator.
         name: vector<u8>,
+        description: vector<u8>,
+        image_url: vector<u8>,
+        project_url: vector<u8>,
         /// The network address of the validator (could also contain extra info such as port, DNS and etc.).
         net_address: vector<u8>,
         /// The address of the narwhal primary
@@ -103,6 +106,9 @@ module sui::validator {
         worker_pubkey_bytes: vector<u8>,
         proof_of_possession: vector<u8>,
         name: vector<u8>,
+        description: vector<u8>,
+        image_url: vector<u8>,
+        project_url: vector<u8>,
         net_address: vector<u8>,
         consensus_address: vector<u8>,
         worker_address: vector<u8>,
@@ -134,6 +140,9 @@ module sui::validator {
                 worker_pubkey_bytes,
                 proof_of_possession,
                 name,
+                description,
+                image_url,
+                project_url,
                 net_address,
                 consensus_address,
                 worker_address,
@@ -222,13 +231,12 @@ module sui::validator {
     /// Request to withdraw delegation from the validator's staking pool, processed at the end of the epoch.
     public(friend) fun request_withdraw_delegation(
         self: &mut Validator,
-        delegation: &mut Delegation,
-        staked_sui: &mut StakedSui,
-        principal_withdraw_amount: u64,
+        delegation: Delegation,
+        staked_sui: StakedSui,
         ctx: &mut TxContext,
     ) {
-        staking_pool::request_withdraw_delegation(
-                &mut self.delegation_staking_pool, delegation, staked_sui, principal_withdraw_amount, ctx);
+        let principal_withdraw_amount = staking_pool::request_withdraw_delegation(
+                &mut self.delegation_staking_pool, delegation, staked_sui, ctx);
         decrease_next_epoch_delegation(self, principal_withdraw_amount);
     }
 
@@ -258,7 +266,7 @@ module sui::validator {
         let reward_withdraw_amount = staking_pool::process_pending_delegation_withdraws(
             &mut self.delegation_staking_pool, ctx);
         self.metadata.next_epoch_delegation = self.metadata.next_epoch_delegation - reward_withdraw_amount;
-        assert!(delegate_amount(self) == self.metadata.next_epoch_delegation, 0);
+        // assert!(delegate_amount(self) == self.metadata.next_epoch_delegation, 0);
     }
 
     /// Called by `validator_set` for handling delegation switches.
@@ -282,6 +290,11 @@ module sui::validator {
         staking_pool::sui_balance(&self.delegation_staking_pool)
     }
 
+    /// Return the total amount staked with this validator, including both validator stake and deledgated stake
+    public fun total_stake(self: &Validator): u64 {
+        stake_amount(self) + delegate_amount(self)
+    }
+
     public fun pending_stake_amount(self: &Validator): u64 {
         self.pending_stake
     }
@@ -296,6 +309,10 @@ module sui::validator {
 
     public fun commission_rate(self: &Validator): u64 {
         self.commission_rate
+    }
+
+    public fun pool_token_exchange_rate(self: &Validator): PoolTokenExchangeRate {
+        staking_pool::pool_token_exchange_rate(&self.delegation_staking_pool)
     }
 
     public fun is_duplicate(self: &Validator, other: &Validator): bool {
@@ -315,6 +332,9 @@ module sui::validator {
         worker_pubkey_bytes: vector<u8>,
         proof_of_possession: vector<u8>,
         name: vector<u8>,
+        description: vector<u8>,
+        image_url: vector<u8>,
+        project_url: vector<u8>,
         net_address: vector<u8>,
         consensus_address: vector<u8>,
         worker_address: vector<u8>,
@@ -341,6 +361,9 @@ module sui::validator {
                 worker_pubkey_bytes,
                 proof_of_possession,
                 name,
+                description,
+                image_url,
+                project_url,
                 net_address,
                 consensus_address,
                 worker_address,

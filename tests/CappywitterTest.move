@@ -43,7 +43,7 @@ module capywitter::capywittertest {
             let cpw_tokens = test_scenario::take_from_address<Coin<cpwtoken::CPWTOKEN>>(scenario, CAPY_OWNER);
             let ctx = test_scenario::ctx(scenario);
             let paid = coin::split(&mut cpw_tokens, 6, ctx);
-            twitter::publish_text_by_index(&mut twitter, paid, text_to_publish, index);
+            twitter::publish_text_by_index(&mut twitter, paid, text_to_publish, index, ctx);
             test_scenario::return_shared<twitter::Twitter>(twitter);
             test_scenario::return_to_address<Coin<cpwtoken::CPWTOKEN>>(CAPY_OWNER, cpw_tokens);
         };

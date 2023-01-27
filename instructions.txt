@@ -1,7 +1,7 @@
 publish: sui client publish nft-projects/capywitter --gas-budget 100000
-Package id: 0xcdb8273f36693fd4349528ec75f65547e285d3e9
-twitter_id: 0xddc1e4772cf4ea2258fb3c0e760e95dafda8f580
-reserve_id: 0x7c8dc9b5a4c5526f4e6f8eb9250eec0e4847f0cd
+Package id: 0xa290f7fc29341e90546d4d5a2a4c42ec12ebb266
+twitter_id: 0x9304f060cc362d36b589db087eedb7b98d8d9b8f
+reserve_id: 0xa290f7fc29341e90546d4d5a2a4c42ec12ebb266
 
 capy_id1:0x40870ed522db462ce1902c85f9f5d44c1c6c6629
 coin 6: 0x5a9c51472d0daef05cc424718cdc7b08fcfb9c8c

@@ -55,10 +55,10 @@ module capywitter::cpwtoken {
             b"Token of Cappywitter dapp developed by Sui Gallery", option::some(icon_url), ctx);
         transfer::freeze_object(metadata);
 
-        // Mint the inital supply
+        // Mint the initial supply
         let minted_coins = coin::mint<CPWTOKEN>(&mut treasury_cap, INITIAL_SUPPLY, ctx);
 
-        // Seperate %1 of tokens to deployer
+        // Separate %1 of tokens to deployer
         let coin_for_deployer = coin::split<CPWTOKEN>(&mut minted_coins, INITIAL_SUPPLY / 100 ,ctx);
         // Send deployer his tokens
         transfer::transfer(coin_for_deployer, tx_context::sender(ctx));

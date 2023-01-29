@@ -2,11 +2,11 @@
 compiled_package_info:
   package_name: capywitter
   address_alias_instantiation:
-    capy: 7e78aee57696ebf9aa0ca95e0f9ab4fb2b471d15
+    capy: 1fc8b469f3605d2a0eb17b2a0bfba0d6203f09a2
     capywitter: "0000000000000000000000000000000000000000"
     std: "0000000000000000000000000000000000000001"
     sui: "0000000000000000000000000000000000000002"
-  source_digest: E83B58DAAF1E0FB228EE8AC4FC1B13F93A9F19683DCD58E5AE59443E892E098A
+  source_digest: FD7D55C8BC75A77B6C99D35ED14CF039C99E6D6FB34FF6C47B2FD5699F6BCE15
   build_flags:
     dev_mode: false
     test_mode: false

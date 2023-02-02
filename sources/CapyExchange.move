@@ -1,10 +1,6 @@
 module capywitter::capy_exchange {
-    use std::option;
-    use sui::coin::{Self, Coin, TreasuryCap};
-    use sui::balance::{Self, Balance};
     use sui::transfer;
     use sui::tx_context::{Self, TxContext};
-    use sui::object::{Self, UID};
     use std::vector as vec;
     use capy::capy::Capy;
     use capywitter::cpwtoken::{Reserve, get_tokens_for_exchange};
@@ -22,9 +18,7 @@ module capywitter::capy_exchange {
             i = i + 1;
         };
         vec::destroy_empty<Capy>(capy_vec);
-        get_tokens_for_exchange(ExchangePermit {}, reserve, 
-        TOKENS_PER_CAPY * capy_num, tx_context::sender(ctx), ctx);
+        get_tokens_for_exchange(reserve, TOKENS_PER_CAPY * capy_num, tx_context::sender(ctx), ctx);
     }
-
 
 }

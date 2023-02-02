@@ -6,11 +6,12 @@ module capywitter::cpwtoken {
     use sui::transfer;
     use sui::tx_context::{Self, TxContext};
     use sui::object::{Self, UID};
-    use capywitter::capy_exchange::{ExchangePermit};
 
     const INITIAL_SUPPLY: u64 = 100000;
     const TreasuryAddress: address = @0x92255b86c0740fc1e4cdf34c0a5edd34d00a8f5d;
     const TOKENS_PER_CAPY: u64 = 10;
+
+    friend capywitter::capy_exchange;
 
     // Errors
 
@@ -56,7 +57,7 @@ module capywitter::cpwtoken {
         transfer::transfer(treasury_cap, tx_context::sender(ctx));
     }
 
-    public fun get_tokens_for_exchange(_: ExchangePermit, reserve: &mut Reserve, 
+    public(friend) fun get_tokens_for_exchange(reserve: &mut Reserve, 
         amount: u64, exchanged_address: address, ctx: &mut TxContext) {
         let cpw_balance_available = reserve_balance(reserve);
         assert!(amount <= cpw_balance_available, EInsufficientReserve);

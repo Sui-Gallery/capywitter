@@ -1,0 +1,19 @@
+2023-02-06T20:54:12.549895Z  INFO sui::client_commands: 0xce01003b0a1d0aa736d770e99935c21e6627e66a
+2023-02-06T20:54:50.095730Z  WARN sui::client_commands: Client/Server api version mismatch, client api version : 0.23.0, server api version : 0.24.0
+2023-02-06T20:54:51.595797Z  INFO sui::client_commands:                  Object ID                  |  Gas Value 
+2023-02-06T20:54:51.595832Z  INFO sui::client_commands: ----------------------------------------------------------------------
+2023-02-06T20:54:51.595838Z  INFO sui::client_commands:  0x2effe89ca91c3459c504c44779b0132e12b48450 |  10000000  
+2023-02-06T20:54:51.595842Z  INFO sui::client_commands:  0x4ad6b0d8ef1cbe31d73606e76de02a1059948eb8 |  10000000  
+2023-02-06T20:54:51.595848Z  INFO sui::client_commands:  0x7705a57540a92da1a5694a0b1230d0945482c908 |  10000000  
+2023-02-06T20:54:51.595852Z  INFO sui::client_commands:  0x89d9ede88c9a3efa13a23312700416b0008390b8 |  10000000  
+2023-02-06T20:54:51.595856Z  INFO sui::client_commands:  0x9b2198bbd1405e8faa4d66e060bfca234cfad78d |  10000000  
+2023-02-06T21:22:51.624939Z  INFO sui::client_commands:                  Object ID                  |  Gas Value 
+2023-02-06T21:22:51.625035Z  INFO sui::client_commands: ----------------------------------------------------------------------
+2023-02-06T21:22:51.625039Z  INFO sui::client_commands:  0x2effe89ca91c3459c504c44779b0132e12b48450 |  10000000  
+2023-02-06T21:22:51.625042Z  INFO sui::client_commands:  0x4ad6b0d8ef1cbe31d73606e76de02a1059948eb8 |  10000000  
+2023-02-06T21:22:51.625044Z  INFO sui::client_commands:  0x7705a57540a92da1a5694a0b1230d0945482c908 |  10000000  
+2023-02-06T21:22:51.625047Z  INFO sui::client_commands:  0x89d9ede88c9a3efa13a23312700416b0008390b8 |  10000000  
+2023-02-06T21:22:51.625050Z  INFO sui::client_commands:  0x9b2198bbd1405e8faa4d66e060bfca234cfad78d |  10000000  
+2023-02-06T21:30:23.345481Z  INFO sui::client_commands: devnet => https://fullnode.devnet.sui.io:443 (active)
+2023-02-06T21:30:23.346020Z  INFO sui::client_commands: localnet => http://0.0.0.0:9000
+2023-02-06T21:30:23.346024Z  INFO sui::client_commands: endpoint => http://162.55.84.47:9000/

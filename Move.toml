@@ -4,8 +4,8 @@ version = "0.0.1"
 
 [dependencies]
 Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework", rev = "devnet" }
-sui-capybaras = { local = "capy" }
+sui-capybaras = { local = "./capy" }
 
 [addresses]
 capywitter =  "0x0"
-capy = "0x1fc8b469f3605d2a0eb17b2a0bfba0d6203f09a2"
+capy = "0x372fbc03f0a39fce091784ecfa1324209c8a7c61"

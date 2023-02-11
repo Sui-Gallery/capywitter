@@ -1,0 +1,30 @@
+2023-02-07T17:12:18.816177Z  INFO sui::client_commands: [1m----- Certificate ----[0m
+2023-02-07T17:12:18.816816Z  INFO sui::client_commands: Transaction Hash: 2wHRDK3BGVRmCMtiYdRrhTnUnr5i9ANJ1n2ABg7rvLby
+2023-02-07T17:12:18.816823Z  INFO sui::client_commands: Transaction Signature: AQ==@NjUc5w8NXRJsb85/EYkIaqR3VV0azLwUMw7+R/6O9KcZ06ql/07c8V4jIkQ5/SvxgTB7hX9aULOd9g6rr6sOtwE=@Ap7jE2azvsOaa9feB+NZD+w03gRCTnDyy8GZCdJ4KjaD
+2023-02-07T17:12:18.816827Z  INFO sui::client_commands: Signed Authorities Bitmap: RoaringBitmap<[0, 2, 3]>
+2023-02-07T17:12:18.816831Z  INFO sui::client_commands: Transaction Kind : Publish
+2023-02-07T17:12:18.816834Z  INFO sui::client_commands: Sender: 0xce01003b0a1d0aa736d770e99935c21e6627e66a
+2023-02-07T17:12:18.816838Z  INFO sui::client_commands: Gas Payment: Object ID: 0x2effe89ca91c3459c504c44779b0132e12b48450, version: 0x54f, digest: 0x3608b0a7c87e4f3929b3bb5f3908078bac0e4ee72aaaf3a3700b2358a7beda8e
+2023-02-07T17:12:18.816841Z  INFO sui::client_commands: Gas Price: 1
+2023-02-07T17:12:18.816844Z  INFO sui::client_commands: Gas Budget: 1000000
+2023-02-07T17:12:18.816848Z  INFO sui::client_commands: [1m----- Transaction Effects ----[0m
+2023-02-07T17:12:18.816851Z  INFO sui::client_commands: Status : Success
+2023-02-07T17:12:18.816854Z  INFO sui::client_commands: Created Objects:
+2023-02-07T17:12:18.816858Z  INFO sui::client_commands:   - ID: 0x16b23b8cfd3bfd6be41a88b66e4e175cedad3f8c , Owner: Account Address ( 0xce01003b0a1d0aa736d770e99935c21e6627e66a )
+2023-02-07T17:12:18.816861Z  INFO sui::client_commands:   - ID: 0x2463cfacc5aeb2de6608a5b7327cf48d317c04a8 , Owner: Account Address ( 0xce01003b0a1d0aa736d770e99935c21e6627e66a )
+2023-02-07T17:12:18.816864Z  INFO sui::client_commands:   - ID: 0x2532263e86bc5c4610787ab614ee3cfdb5a0637a , Owner: Shared
+2023-02-07T17:12:18.816868Z  INFO sui::client_commands:   - ID: 0x4caa28d7a16277ffbe6d046aa49a5ea7a1d9ffe9 , Owner: Object ID: ( 0xde7d11cee31927f7c9383957724b67b17a7083ce )
+2023-02-07T17:12:18.816871Z  INFO sui::client_commands:   - ID: 0x4df086a1ff4d5271149abb64e68248d9ffb542e3 , Owner: Immutable
+2023-02-07T17:12:18.816875Z  INFO sui::client_commands:   - ID: 0x5de85f245364e7f9478d498473ee78a280b75af3 , Owner: Object ID: ( 0xde7d11cee31927f7c9383957724b67b17a7083ce )
+2023-02-07T17:12:18.816919Z  INFO sui::client_commands:   - ID: 0x5fa9a4ff3130d381c82d4e35f42063fcc620534b , Owner: Object ID: ( 0xde7d11cee31927f7c9383957724b67b17a7083ce )
+2023-02-07T17:12:18.816923Z  INFO sui::client_commands:   - ID: 0x611b2ce4b2ec3ddd3097f409ba1c8d19ffbd50f1 , Owner: Object ID: ( 0xde7d11cee31927f7c9383957724b67b17a7083ce )
+2023-02-07T17:12:18.816927Z  INFO sui::client_commands:   - ID: 0x70178bd1739d0b6d1befe34196d86e11c3335974 , Owner: Object ID: ( 0xde7d11cee31927f7c9383957724b67b17a7083ce )
+2023-02-07T17:12:18.816931Z  INFO sui::client_commands:   - ID: 0x7b737e7d3bf18a076ccc478ed3f5acebbd99c65b , Owner: Object ID: ( 0xde7d11cee31927f7c9383957724b67b17a7083ce )
+2023-02-07T17:12:18.816934Z  INFO sui::client_commands:   - ID: 0x9a9f26471609f2d4ac22e5fa052df4f70b8ecec1 , Owner: Object ID: ( 0xde7d11cee31927f7c9383957724b67b17a7083ce )
+2023-02-07T17:12:18.816938Z  INFO sui::client_commands:   - ID: 0xd13aab0acb5fa4b96c44163a3075968509692ee2 , Owner: Object ID: ( 0xde7d11cee31927f7c9383957724b67b17a7083ce )
+2023-02-07T17:12:18.816943Z  INFO sui::client_commands:   - ID: 0xde7d11cee31927f7c9383957724b67b17a7083ce , Owner: Shared
+2023-02-07T17:12:18.816946Z  INFO sui::client_commands:   - ID: 0xe45cb1b990264d241ebfc2b21451c22aa5584f5f , Owner: Object ID: ( 0xde7d11cee31927f7c9383957724b67b17a7083ce )
+2023-02-07T17:12:18.816950Z  INFO sui::client_commands:   - ID: 0xf2fce0a3fa5ef67d50c81bb25768d6a428bdf0ab , Owner: Immutable
+2023-02-07T17:12:18.817051Z  INFO sui::client_commands:   - ID: 0xf4a540499ab0e244923dec253c07604d2c4beb15 , Owner: Object ID: ( 0xde7d11cee31927f7c9383957724b67b17a7083ce )
+2023-02-07T17:12:18.817058Z  INFO sui::client_commands: Mutated Objects:
+2023-02-07T17:12:18.817061Z  INFO sui::client_commands:   - ID: 0x2effe89ca91c3459c504c44779b0132e12b48450 , Owner: Account Address ( 0xce01003b0a1d0aa736d770e99935c21e6627e66a )

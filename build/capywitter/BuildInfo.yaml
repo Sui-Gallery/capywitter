@@ -2,11 +2,11 @@
 compiled_package_info:
   package_name: capywitter
   address_alias_instantiation:
-    capy: 372fbc03f0a39fce091784ecfa1324209c8a7c61
+    capy: 7f0164a2585e2b66d9f2925824a8940b082ab6cf
     capywitter: "0000000000000000000000000000000000000000"
     std: "0000000000000000000000000000000000000001"
     sui: "0000000000000000000000000000000000000002"
-  source_digest: 83AEBDF29F9F531568D92A34C923F1C8EB204C085ACBD87B13CC09016DEF5D53
+  source_digest: 773E918BA534D928004F459921CB9A1555E4900084D2520E05B558204A1D4004
   build_flags:
     dev_mode: false
     test_mode: false
@@ -14,10 +14,11 @@ compiled_package_info:
     generate_abis: false
     install_dir: ~
     force_recompilation: false
+    lock_file: ~
     additional_named_addresses: {}
     architecture: ~
     fetch_deps_only: false
-    skip_fetch_latest_git_deps: true
+    skip_fetch_latest_git_deps: false
 dependencies:
   - MoveStdlib
   - Sui
